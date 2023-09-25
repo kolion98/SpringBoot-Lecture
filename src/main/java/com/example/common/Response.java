@@ -1,5 +1,6 @@
 package com.example.common;
 
+//구조파악
 public class Response<T> {
     private final T data;
 
