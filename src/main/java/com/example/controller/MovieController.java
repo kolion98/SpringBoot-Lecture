@@ -33,20 +33,22 @@ public class MovieController {
 //    }
 
     @GetMapping("/v1/movies")
-    public Response<List<MovieResponse>> getMovies() {
-        return Response.of(movieService.getMovie());
+    public Response<List<MovieResponse>> getMovies(
+            @RequestParam(value = "overYear", required = false) Integer overYear
+    ) {
+        return Response.of(movieService.getMovies());
     }
 
     @GetMapping("/v1/movies/{movieId}")
-    public Movie getMovie(
+    public Response<MovieResponse> getMovie(
             @PathVariable(value = "movieId") long movieId
     ) {
-        return movieService.getMovie(movieId);
+        return Response.of(movieService.getMovie(movieId));
     }
 
     @PostMapping("/v1/movies")
-    public void createMovie(@RequestBody MovieRequest movieRequest) {
-        movieService.createMovie(movieRequest);
+    public void saveMovie(@RequestBody MovieRequest movieRequest) {
+        movieService.saveMovie(movieRequest);
     }
 
     @PutMapping("/v1/movies/{movieId}")
@@ -58,9 +60,9 @@ public class MovieController {
     }
 
     @DeleteMapping("/v1/movies/{movieId}")
-    public void deleteMovie(
+    public void removeMovie(
             @PathVariable(value = "movieId") long movieId
     )  {
-        movieService.deleteMovie(movieId);
+        movieService.removeMovie(movieId);
     }
 }
