@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class MovieRequest {
-    private long id;
+    private Long id;
     private String name;
     private Integer productionYear;
 }
