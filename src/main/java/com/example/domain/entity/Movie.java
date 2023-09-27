@@ -46,4 +46,17 @@ public class Movie {
     public void setName(String name) {
         this.name = name;
     }
+    //public void setId(long id) { this.id = id; };
+
+    public void setDirector(Director director) {
+        this.director = director;
+    }
+
+    public void setActors(List<Actor> actors) {
+        this.actors = actors;
+    }
+
+    public void setProductionYear(Integer productionYear) {
+        this.productionYear = productionYear;
+    }
 }
